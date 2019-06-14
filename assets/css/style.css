@@ -23,11 +23,10 @@ header, main, footer {
     
 }
 
-header{
+header, footer{
     background-image: url('../images/bgheader.png');
-    margin: 2px auto;
+    margin: 0 auto;
     width: 100%;
-    max-width: 600px;
     text-align: center;
 }
 

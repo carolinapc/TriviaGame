@@ -16,33 +16,90 @@ var mascotImages = {
     loser: "assets/images/flag-red.gif",
     winner:  "assets/images/flag-party.gif"}
 
-
+    
 function createQuestions(){
     questions = [
         {
-            query: "Question 1",
-            answers: ["Answer 1",
-                    "Answer 2",
-                    "Answer 3",
-                    "Answer 4"],
-            correctAnswer: 0
+            query: "Approximately how many Canadians served in the First World War?",
+            answers: ["7000",
+                    "8 million",
+                    "About 60,000",
+                    "More than 600,000"],
+            correctAnswer: 3
         },
         {
-            query: "Question 2",
-            answers: ["Answer 1",
-                    "Answer 2",
-                    "Answer 3",
-                    "Answer 4"],
+            query: "Canada has three territories and how many provinces?",
+            answers: ["13",
+                    "10",
+                    "3",
+                    "5"],
             correctAnswer: 1
         },
         {
-            query: "Question 3",
-            answers: ["Answer 1",
-                    "Answer 2",
-                    "Answer 3",
-                    "Answer 4"],
+            query: " From where does the name 'Canada' come from?",
+            answers: ["From the Inuit word meaning country",
+                    "From the French word meaning joining",
+                    "From the Metis word meaning rivers",
+                    "From 'Kanata', the Huron-Iroquois word for village"],
+            correctAnswer: 3
+        },
+        {
+            query: "Give the first line of Canada's national anthem?",
+            answers: ["O Canada! Our home and native land! ",
+                    "O Canada! Our province and native land!",
+                    "O Canada! From far and wide, O Canada, We stand on guard for thee.",
+                    "O Canada! We stand on guard for thee."],
+            correctAnswer: 0
+        },
+        {
+            query: "Name the five regions of Canada",
+            answers: ["Midwest, North, South, East, Central",
+                    "Maritimes, Ontario, Quebec, Prairies, and British Columbia",
+                    "Atlantic, Central, Prairie, West Coast, and North",
+                    "West, Central, East, Prairies, and Territories"],
+            correctAnswer: 2
+        },
+        {
+            query: "On what date did Nunavut become a territory?",
+            answers: ["July 1st, 1867",
+                    "April 1st, 1999",
+                    "June 24th, 1995",
+                    "March 31st, 1949"],
+            correctAnswer: 1
+        },
+        {
+            query: "One third of all Canadians live in which province?",
+            answers: ["Quebec",
+                    "Northwest Territories",
+                    "Ontario",
+                    "Manitoba"],
+            correctAnswer: 2
+        },
+        {
+            query: "What are the three main groups of Aboriginal peoples?",
+            answers: ["Acadians, Metis and Inuit",
+                    "United Empire Loyalists, Metis and Inuit",
+                    "Inuit, Metis and Acadians",
+                    "First Nations, Metis and Inuit."],
+            correctAnswer: 3
+        },
+        {
+            query: "What is Canada's national winter sport?",
+            answers: ["Golf",
+                    "Nordic skiing",
+                    "Lacrosse",
+                    "Hockey"],
+            correctAnswer: 3
+        },
+        {
+            query: "Which animal is an official symbol of Canada?",
+            answers: ["The moose",
+                    "The hawk",
+                    "The beaver",
+                    "The deer"],
             correctAnswer: 2
         }
+
     ];   
 
 }
@@ -105,10 +162,10 @@ function showAnswer(userAnswer){
 
     var displayCorrectAnswer = function (){
         $("#answer").text("The correct answer was: " + questions[questionIndex].answers[questions[questionIndex].correctAnswer]);
+        $("#answer").css("display","block");
     }
 
     $("#play").css("display","none");
-    $("#answer").css("display","block");
 
     switch (userAnswer) {
         case -1:

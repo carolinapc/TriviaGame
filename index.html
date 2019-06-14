@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- styles -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    
+    <title>Trivia Game</title>
+</head>
+<body class="d-flex flex-column h-100">
+    <header class="shadow p-3 mb-5 bg-white rounded">
+        <h1>TRIVIA GAME</h1>
+        <h2>
+            Canada History 
+            <img src="assets/images/canada-flag.gif" alt="canada-flag" />
+        </h2>
+        
+        
+    </header>
+
+    <main class="shadow p-3 mb-5 bg-white rounded">
+        <section id="time">
+            Time Remaining: <span id="time-display"></span>
+        </section> 
+    
+        <legend id="message">Press start and good lucky!</legend>
+    
+        <section id="play">
+            <legend id="question"></legend>
+            <button class="answer" id="answer-0" value="0"></button>
+            <button class="answer" id="answer-1" value="1"></button>
+            <button class="answer" id="answer-2" value="2"></button>
+            <button class="answer" id="answer-3" value="3"></button>
+        </section>
+    
+        <section id="answer"></section>
+    
+        <summary id="summary">
+            <p>Correct Answers: <span id="corrects"></span></p> 
+            <p>Incorrect Answers: <span id="incorrects"></span></p> 
+            <p>Unanswered: <span id="unaswered"></span></p> 
+        </summary>
+    
+        <button class="button" id="start">Start</button>
+            
+    </main>
+
+    
+    <footer class="footer mt-auto py-3">
+        <!-- <audio class="audio" controls id="bgsound" loop>
+            <source id="audioSource" src="assets/sounds/bgsound.mp3" type="audio/mpeg">
+        </audio> -->
+        <span>&copy; Carolina Cavalcanti</span>
+    </footer>
+
+    <!-- javascript -->
+    <script src="assets/javascript/app.js"></script>
+</body>
+</html>

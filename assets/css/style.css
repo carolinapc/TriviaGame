@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css?family=Poor+Story&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Poor Story', cursive;
+}
+
+html,body{
+    height:100%;
+    width:100%;
+    margin:0;
+    padding:0;
+    overflow-x:hidden;
+       
+}
+
+body{
+    background-image: url('../images/background.png');
+}
+
+header, main, footer {
+    margin: 20px auto;
+    
+}
+
+header{
+    background-image: url('../images/bgheader.png');
+    margin: 2px auto;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+h1{
+    font-size: 2.5rem; 
+    font-weight: bold;
+    color: brown;
+    text-shadow: #c1c1c1 2px 1px 0;
+}
+h2{
+    font-size: 2rem; 
+    position: relative;
+    margin: 0 auto;
+    width: 200px;
+    color: darkred;
+    text-shadow: #c1c1c1 2px 1px 0;
+    
+}
+
+h2 img {
+    position: absolute;
+    height: 120px;
+    bottom: -10px;
+    right: -82px;
+}
+
+
+
+main {
+    width: 100%;
+    max-width: 600px;
+    font-size: 22px;
+}
+
+summary, section{
+    display: none;
+    margin: 10px auto 10px auto;
+    text-align: center;
+}
+
+legend{
+    margin: 20px auto;
+    text-align: center;
+    color: #da0606;
+}
+
+#time {
+    font-weight: bold;
+    border-bottom: 1px solid #c1c1c1;
+}
+
+.blink {
+    animation: blinker 1s linear infinite;
+    color: #da0606;
+}
+
+@keyframes blinker {  
+    50% { opacity: 0; }
+}
+
+
+button{
+    display: block;
+    margin: 10px auto;
+    border-radius:5px;
+    width: 80%;
+
+}
+button:hover{
+    background-color: #da0606;
+    color: #fff;
+
+}
+
+
+
+footer{
+    padding-top: 20px;
+    text-align: center;
+    width: 100%;
+}
+

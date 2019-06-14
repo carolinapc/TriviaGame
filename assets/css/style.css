@@ -99,6 +99,7 @@ button{
     margin: 10px auto;
     border-radius:5px;
     width: 80%;
+    background-color: whitesmoke;
 
 }
 button:hover{

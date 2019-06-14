@@ -88,6 +88,11 @@ legend{
     50% { opacity: 0; }
 }
 
+#mascot{
+    display: block;
+    width: 200px;
+    margin: 10px auto;
+}
 
 button{
     display: block;

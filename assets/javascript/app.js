@@ -7,9 +7,12 @@ var correctAnswer = 0;
 var incorrectAnswer = 0;
 var unanswered = 0;
 var questions =[];
-var flagImages = {
+var mascotImages = {
     incorrect: "assets/images/flag-yellow.gif",
     correct: "assets/images/flag-claps.gif",
+    cheer: "assets/images/flag-cheer.gif",
+    timesup: "assets/images/flag-timesup.gif",
+    tie: "assets/images/flag-claps.gif",
     loser: "assets/images/flag-red.gif",
     winner:  "assets/images/flag-party.gif"}
 
@@ -77,6 +80,7 @@ function showQuestion(){
     $("#time").css("display","block");
     
     changeMessage("");
+    $("#mascot").attr("src",mascotImages.cheer);
 
     //starts the time
     time = TIME_TO_ANSWER;
@@ -109,15 +113,18 @@ function showAnswer(userAnswer){
     switch (userAnswer) {
         case -1:
             changeMessage("Time's up!");
+            $("#mascot").attr("src",mascotImages.timesup);
             displayCorrectAnswer();
             unanswered++;
             break;
         case questions[questionIndex].correctAnswer:
             changeMessage("Correct!");
+            $("#mascot").attr("src",mascotImages.correct);
             correctAnswer++;
             break;
         default:
             changeMessage("Wrong!");
+            $("#mascot").attr("src",mascotImages.incorrect);
             displayCorrectAnswer();
             incorrectAnswer++;
             break;
@@ -131,6 +138,18 @@ function showAnswer(userAnswer){
 }
 
 function gameOver(){
+    //update summary data
+    $("#corrects").text(correctAnswer);
+    $("#incorrects").text(incorrectAnswer);
+    $("#unanswered").text(unanswered);
+
+    if(correctAnswer > incorrectAnswer + unanswered)
+        $("#mascot").attr("src",mascotImages.winner);
+    else if(correctAnswer < incorrectAnswer + unanswered)    
+        $("#mascot").attr("src",mascotImages.loser);
+    else
+        $("#mascot").attr("src",mascotImages.tie);
+
     //show the summary
     $("#summary").css("display","block");
     $("#answer").css("display","none");

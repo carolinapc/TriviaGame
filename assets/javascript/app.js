@@ -113,7 +113,6 @@ function createQuestions(){
 
 }
 
-//play sound effect
 function playSoundEffect(effect){
     
     audio.src = effect;
@@ -198,15 +197,18 @@ function showAnswer(userAnswer){
             displayCorrectAnswer();
             unanswered++;
             break;
+
         case questions[questionIndex].correctAnswer:
+
             playSoundEffect(soundEffects.correct);
-            changeMessage("Correct!");
+            changeMessage("Correct! Contratulations!!");
             $("#mascot").attr("src",mascotImages.correct);
             correctAnswer++;
             break;
+
         default:
             playSoundEffect(soundEffects.incorrect);
-            changeMessage("Wrong!");
+            changeMessage("Wrong Answer!");
             $("#mascot").attr("src",mascotImages.incorrect);
             displayCorrectAnswer();
             incorrectAnswer++;

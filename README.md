@@ -10,4 +10,4 @@ After all questions were displayed, is shown a summary with the number of correc
 
 If the user wins (more correct answers than the sum of incorrects and unanswered) the Canada National Anthem is played.
 
-![Play the Game!]()
+[Play the Game!](https://carolinapc.github.io/TriviaGame/)

@@ -1,4 +1,5 @@
 const TIME_TO_ANSWER = 30;
+var audio = document.getElementById("sound-effect");
 var started = false;
 var time = TIME_TO_ANSWER; 
 var questionInterval;
@@ -14,7 +15,15 @@ var mascotImages = {
     timesup: "assets/images/flag-timesup.gif",
     tie: "assets/images/flag-claps.gif",
     loser: "assets/images/flag-red.gif",
-    winner:  "assets/images/flag-party.gif"}
+    winner:  "assets/images/flag-party.gif"};
+
+var soundEffects = {
+    incorrect: "assets/sounds/whistle.mp3",
+    correct: "assets/sounds/claps.mp3",
+    timesup: "assets/sounds/countdown.mp3",
+    winner: "assets/sounds/canada-anthem.mp3",
+    loser: "assets/sounds/loser.mp3"
+};
 
     
 function createQuestions(){
@@ -104,6 +113,17 @@ function createQuestions(){
 
 }
 
+//play sound effect
+function playSoundEffect(effect){
+    
+    audio.src = effect;
+    audio.load();
+    audio.play();     
+}
+
+function stopSound(){
+    audio.pause();
+}
 
 function timeConverter(t) {
 
@@ -119,7 +139,10 @@ function countDown(){
 
     if(time >= 0){
         $("#time-display").text(timeConverter(time));
-        if(time == 10) $("#time-display").addClass("blink");
+        if(time == 10) {
+            playSoundEffect(soundEffects.timesup);
+            $("#time-display").addClass("blink");
+        }
         time--;
     }
     else{
@@ -169,17 +192,20 @@ function showAnswer(userAnswer){
 
     switch (userAnswer) {
         case -1:
+            playSoundEffect(soundEffects.incorrect);
             changeMessage("Time's up!");
             $("#mascot").attr("src",mascotImages.timesup);
             displayCorrectAnswer();
             unanswered++;
             break;
         case questions[questionIndex].correctAnswer:
+            playSoundEffect(soundEffects.correct);
             changeMessage("Correct!");
             $("#mascot").attr("src",mascotImages.correct);
             correctAnswer++;
             break;
         default:
+            playSoundEffect(soundEffects.incorrect);
             changeMessage("Wrong!");
             $("#mascot").attr("src",mascotImages.incorrect);
             displayCorrectAnswer();
@@ -201,11 +227,20 @@ function gameOver(){
     $("#unanswered").text(unanswered);
 
     if(correctAnswer > incorrectAnswer + unanswered)
+    {
+        playSoundEffect(soundEffects.winner);
         $("#mascot").attr("src",mascotImages.winner);
-    else if(correctAnswer < incorrectAnswer + unanswered)    
+    }
+    else if(correctAnswer < incorrectAnswer + unanswered){
+        playSoundEffect(soundEffects.loser);
         $("#mascot").attr("src",mascotImages.loser);
+    }  
     else
+    {
+        playSoundEffect(soundEffects.loser);
         $("#mascot").attr("src",mascotImages.tie);
+    }
+        
 
     //show the summary
     $("#summary").css("display","block");
@@ -220,7 +255,7 @@ function gameOver(){
 }
 
 function reset(){
-    
+    stopSound();
     started = false;
     clearInterval(questionInterval);
     time = TIME_TO_ANSWER; 

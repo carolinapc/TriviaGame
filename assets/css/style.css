@@ -107,7 +107,9 @@ button:hover{
 
 }
 
-
+#sound-effect{
+    display: none;
+}
 
 footer{
     padding-top: 20px;
